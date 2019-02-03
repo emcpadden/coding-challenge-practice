@@ -1,0 +1,13 @@
+.user-detail-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.user-detail-content {
+    display: flex;
+    flex-direction: column;
+}

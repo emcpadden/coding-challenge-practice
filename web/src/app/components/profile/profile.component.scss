@@ -1,0 +1,61 @@
+.profile-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+mat-card {
+    flex-basis: 800px;
+    min-width: 300px;
+    max-width: 800px;
+}
+
+.name-section, .address-section, .about-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about-field {
+    flex: 1;
+}
+
+@media(min-width: 768px) {
+    .profile-container {
+        margin-top: 30px;
+    }
+
+    .name-section, .address-section {
+        flex-direction: row;
+    }
+
+    .name-section mat-form-field {
+        flex-basis: 49%;
+    }
+
+    .street-field {
+        flex-basis: 100%;
+    }
+
+    .city-field {
+        flex-basis: 49%;
+    }
+
+    .state-field {
+        flex-basis: 24%;
+    }
+
+    .zip-field {
+        flex-basis: 24%;
+    }
+}
+
+@media(min-width: 1024px) {
+    .name-section mat-form-field {
+        flex-basis: 24%;
+    }
+}

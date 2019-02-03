@@ -1,0 +1,111 @@
+Useful links:
+
+https://code.visualstudio.com/
+
+https://nodejs.org/en/
+https://angular.io/
+https://cli.angular.io/
+
+https://expressjs.com/
+https://expressjs.com/en/starter/generator.html
+
+https://www.mockaroo.com/
+
+Set up debugging for the Angular app:
+see: https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI
+
+
+** General Setup
+node version 10.14.1
+install angular cli
+install express cli
+install Visual Studio Code
+inside Visual Studio Code:
+    - install the "Debugger for Chrome" extension
+
+** Express Server Notes
+Create a new express app (using express cli):
+express --git
+need to: 
+npm install --save nodemon
+npm install --save jsonwebtoken
+
+
+** Angular Notes
+Create a new angular app (using Angular cli):
+ng new web  --commit  --routing --style=scss --prefix=lm
+
+Install Angular Material
+(note: don't need to install @angular/animations because it was installed by the cli)
+//npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save @angular/material @angular/cdk
+
+note: also install gesture support:
+npm install --save hammerjs
+and add the following to main.ts:
+import 'hammerjs'
+
+update index.html to add the google fonts
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+NOTE: when generating items you can use --dry-run to see what will happen without actually doing it
+
+to create a new module:
+ng generate module <modulename> --routing
+
+to generate a new component
+ng generate component <component name>
+ex:
+    ng generate component messages/message-list
+    ng generate component home
+    ng generate component users/user-list
+    ng generate component components/register
+
+to generate services:
+ng generate service <service name>
+ex:
+    ng generate service messages/services/message
+    ng generate service services/authentication
+
+to make Http requests, we need to add the HttpClient:
+npm install --save @angular/common/http
+and add it to the modules that will need to use it
+
+for proxy api request to nodejs:
+add a proxy.conf.json next to package.json that has:
+{
+    "/api": {
+      "target": "http://localhost:3000",
+      "secure": true
+    },
+    "/auth": {
+        "target": "http://localhost:3000",
+        "secure": false
+      }
+}
+
+in angular.json you need to tell it to use a proxy:
+ "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web:build",
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web:build:production"
+            }
+          }
+        },
+
+
+to use ag grid:
+https://www.ag-grid.com/angular-getting-started/
+npm install --save ag-grid-community ag-grid-angular
+
+add the following for styles:
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+
+

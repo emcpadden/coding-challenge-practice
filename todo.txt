@@ -1,0 +1,26 @@
+// SERVER
+
+
+-- nice to have
+* figure out morgan - error reporting
+* mongo support
+* web socket support
+* unit testing
+* versioning
+
+// CLIENT
+* Add register
+* unit testing
+
+
+// NEXT TODO:
+* add register button functionality
+
+* create a component that has lots of angular material examples
+* add a table
+
+* edit profile - reactive form - error handling - etc.
+
+* mongo database backend
+
+* can I do any of this in react

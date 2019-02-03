@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* styles for ag grid */
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+
+body {
+    font-family: Roboto, Arial, sans-serif;
+}
+body,
+html {
+  margin: 0 auto;
+}

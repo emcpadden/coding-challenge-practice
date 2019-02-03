@@ -1,0 +1,26 @@
+.users-list {
+    display: flex;
+    flex-direction: column;
+//    justify-content: space-between;
+}
+
+mat-card {
+    margin: 8px 0;
+}
+
+@media(min-width: 768px) {
+    .users-list {
+        flex-direction: row;
+        align-items: stretch; /* default */
+        flex-wrap: wrap;
+        justify-items: flex-start;
+    }
+    
+    mat-card {
+        flex: 1;
+        flex-basis: 20%;
+        min-width: 200px;
+        max-width: 20%;
+        margin: 8px 8px;
+    }
+}

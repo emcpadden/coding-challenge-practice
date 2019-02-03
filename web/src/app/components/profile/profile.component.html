@@ -1,0 +1,99 @@
+<form class="profile-container" [formGroup]="profileForm" (ngSubmit)="save(profileForm.value)">
+  <mat-card>
+    <mat-card-title>My Profile: {{ data.profile.username }}</mat-card-title>
+    <mat-card-content>
+      <section class="name-section">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="First"
+            type="text"
+            formControlName="firstName"
+          />
+          <mat-error align="end" *ngIf="hasError('firstName')">First name required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Last"
+            type="text"
+            formControlName="lastName"
+          />
+          <mat-error align="end" *ngIf="hasError('lastName')">Last name required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            type="email"
+            formControlName="email"
+          />
+          <mat-hint align="end">Hint: email@domain.com</mat-hint>
+          <mat-error align="end" *ngIf="hasError('email')">Please enter a valid email address</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Birthday"
+            type="text"
+            formControlName="birthday"
+            [matDatepicker]="birthday"
+            [max]="today"
+          />
+          <mat-datepicker-toggle matSuffix [for]="birthday"></mat-datepicker-toggle>
+          <mat-datepicker #birthday></mat-datepicker>
+          <mat-error align="end" *ngIf="hasError('birthday')">Please enter a valid birthday</mat-error>
+        </mat-form-field>
+      </section>
+
+      <section class="address-section" formGroupName="address">
+        <mat-form-field class="street-field">
+          <input
+            matInput
+            placeholder="Street"
+            type="text"
+            formControlName="street"
+          />
+          <mat-error align="end" *ngIf="hasError('address.street')">Street is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="city-field">
+          <input
+            matInput
+            placeholder="City"
+            type="text"
+            formControlName="city"
+          />
+          <mat-error align="end" *ngIf="hasError('address.city')">City is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="state-field">
+          <input
+            matInput
+            placeholder="State"
+            type="text"
+            formControlName="state"
+          />
+          <mat-error align="end" *ngIf="hasError('address.state')">State is required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="zip-field">
+          <input matInput placeholder="Zip" type="text" formControlName="zip" />
+          <mat-error align="end" *ngIf="hasError('address.zip')">Zip is required</mat-error>
+        </mat-form-field>
+      </section>
+      <section class="about-section">
+        <mat-form-field class="about-field">
+          <textarea #about
+            matInput
+            placeholder="About Me"
+            formControlName="about"
+          ></textarea>
+          <mat-hint align="end">{{about.value.length}} of 50</mat-hint>
+          <mat-error align="end" *ngIf="hasError('about', null, true)">Must be less than 50 charaters. {{about.value.length}} of 50</mat-error>
+        </mat-form-field>
+      </section>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="default" (click)="reset(); $event.preventDefault()">Reset</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

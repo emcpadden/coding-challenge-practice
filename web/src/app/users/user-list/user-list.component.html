@@ -1,0 +1,26 @@
+<section class="users-list-heading">
+  <h1>Users</h1>
+  <p>There are {{data.users.length}} users</p>
+</section>
+<section class="users-list-contents">
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">apps</mat-icon>
+        Grid
+      </ng-template>
+      <ng-template matTabContent>
+        <lm-user-tiles (viewDetail)="viewDetail($event)" [users]="data.users"></lm-user-tiles>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon">menu</mat-icon>
+        List
+      </ng-template>
+      <ng-template matTabContent>
+        <lm-user-grid (viewDetail)="viewDetail($event)" [users]="data.users"></lm-user-grid>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</section>

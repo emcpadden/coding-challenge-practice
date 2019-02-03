@@ -1,0 +1,18 @@
+<section class="users-list">
+  <mat-card *ngFor="let user of users">
+    <mat-card-title>
+      Username: {{user.username}}
+    </mat-card-title>
+    <mat-card-content>
+      <div>Username: {{user.username}}</div>
+      <div>First: {{user.firstName}}</div>
+      <div>Last: {{user.lastName}}</div>
+      <div>Email: {{user.email}}</div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button  mat-button color="primary" (click)="viewDetail(user.id)">View Detail</button>
+    </mat-card-actions>
+  </mat-card>
+</section>
+
+    
